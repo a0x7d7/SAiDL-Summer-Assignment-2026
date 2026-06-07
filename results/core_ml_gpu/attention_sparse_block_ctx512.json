@@ -1,0 +1,72 @@
+{
+  "config": {
+    "name": "attention_sparse_block_ctx512",
+    "seed": 0,
+    "device": "auto",
+    "epochs": 1,
+    "max_steps": 500,
+    "max_eval_batches": 8,
+    "benchmark_steps": 3,
+    "lr": 0.0005,
+    "weight_decay": 0.01,
+    "grad_clip": 1.0,
+    "output_dir": "results/core_ml_gpu",
+    "suite_contexts": [
+      512,
+      1024,
+      2048
+    ],
+    "data": {
+      "tokenizer": "gpt2",
+      "context_length": 512,
+      "batch_size": 2,
+      "split_limit": 4000,
+      "max_train_samples": 1024,
+      "max_val_samples": 256
+    },
+    "model": {
+      "dim": 192,
+      "layers": 4,
+      "heads": 4,
+      "ff_dim": 768,
+      "dropout": 0.1,
+      "attention_type": "sparse_block",
+      "pos_encoding": "alibi",
+      "window_size": 256,
+      "sparse_block_size": 128,
+      "conv_mode": "none",
+      "context_length": 512,
+      "kv_heads": null
+    }
+  },
+  "model_config": {
+    "vocab_size": 50257,
+    "context_length": 512,
+    "dim": 192,
+    "layers": 4,
+    "heads": 4,
+    "ff_dim": 768,
+    "dropout": 0.1,
+    "attention_type": "sparse_block",
+    "pos_encoding": "alibi",
+    "window_size": 256,
+    "sparse_block_size": 128,
+    "kv_heads": null,
+    "conv_mode": "none",
+    "conv_kernel": 5
+  },
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 0.3637681703190319,
+      "train_tokens_per_sec": 21148.808314439022,
+      "epoch_seconds": 24.209401891001107,
+      "val_loss": 0.0027833901840494946,
+      "val_ppl": 1.0027872674109517,
+      "eval_tokens_per_sec": 63343.518169491545
+    }
+  ],
+  "total_seconds": 24.340362274000654,
+  "peak_memory_mb": 971.92578125,
+  "inference_tokens_per_sec": 53133.7790971438
+}

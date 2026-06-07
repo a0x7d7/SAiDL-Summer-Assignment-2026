@@ -1,0 +1,53 @@
+{
+  "config": {
+    "name": "xlstm_sora",
+    "seed": 0,
+    "device": "auto",
+    "method": "sora",
+    "backbone": "xlstm",
+    "epochs": 3,
+    "max_steps": 384,
+    "sequence_epochs": 3,
+    "sequence_max_steps": 384,
+    "sequence_lr": 0.0002,
+    "lr": 0.0002,
+    "grad_clip": 1.0,
+    "output_dir": "results/sparsity_deberta_long",
+    "sora_mode": "proximal",
+    "data": {
+      "model_name": "microsoft/deberta-v3-base",
+      "data_dir": "glue_data/CoLA",
+      "max_length": 64,
+      "batch_size": 16,
+      "max_train_samples": 4096,
+      "max_eval_samples": 1024,
+      "use_tiny_fallback": false
+    },
+    "adapter": {
+      "rank": 8,
+      "alpha": 16.0,
+      "l1_lambda": 0.001,
+      "adalora_target_rank": 4
+    }
+  },
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 0.7759501343825832,
+      "eval_loss": 0.6815372910350561,
+      "accuracy": 0.61328125,
+      "mcc": -0.0242437658173874
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.6677599865943193,
+      "eval_loss": 0.6718602320179343,
+      "accuracy": 0.638671875,
+      "mcc": -0.020208448851021216
+    }
+  ],
+  "seconds": 4.6099655460002396,
+  "trainable_params": 536,
+  "total_params": 8223010,
+  "effective_rank": 8.0
+}

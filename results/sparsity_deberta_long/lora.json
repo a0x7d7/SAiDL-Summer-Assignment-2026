@@ -1,0 +1,60 @@
+{
+  "config": {
+    "name": "lora",
+    "seed": 0,
+    "device": "auto",
+    "method": "lora",
+    "backbone": "deberta",
+    "epochs": 3,
+    "max_steps": 768,
+    "sequence_epochs": 3,
+    "sequence_max_steps": 384,
+    "sequence_lr": 0.0002,
+    "lr": 5e-05,
+    "grad_clip": 1.0,
+    "output_dir": "results/sparsity_deberta_long",
+    "sora_mode": "proximal",
+    "data": {
+      "model_name": "microsoft/deberta-v3-base",
+      "data_dir": "glue_data/CoLA",
+      "max_length": 64,
+      "batch_size": 16,
+      "max_train_samples": 4096,
+      "max_eval_samples": 1024,
+      "use_tiny_fallback": false
+    },
+    "adapter": {
+      "rank": 8,
+      "alpha": 16.0,
+      "l1_lambda": 0.001,
+      "adalora_target_rank": 4
+    }
+  },
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 0.5649357016081922,
+      "eval_loss": 0.448862518183887,
+      "accuracy": 0.8212890625,
+      "mcc": 0.5619238433181161
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.4117179775494151,
+      "eval_loss": 0.49439289086149074,
+      "accuracy": 0.818359375,
+      "mcc": 0.5565248572411192
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.350448476994643,
+      "eval_loss": 0.387900764180813,
+      "accuracy": 0.84375,
+      "mcc": 0.6222243289325925
+    }
+  ],
+  "seconds": 90.93329143099982,
+  "trainable_params": 1346144,
+  "total_params": 185769826,
+  "effective_rank": 8.0
+}

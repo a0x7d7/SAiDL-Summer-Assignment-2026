@@ -1,0 +1,46 @@
+{
+  "config": {
+    "name": "sora_proximal",
+    "seed": 0,
+    "device": "auto",
+    "method": "sora",
+    "backbone": "deberta",
+    "epochs": 1,
+    "max_steps": 300,
+    "sequence_epochs": 3,
+    "sequence_max_steps": 384,
+    "sequence_lr": 0.0002,
+    "lr": 5e-05,
+    "grad_clip": 1.0,
+    "output_dir": "results/sparsity_gpu",
+    "sora_mode": "proximal",
+    "data": {
+      "model_name": "microsoft/deberta-v3-base",
+      "data_dir": "glue_data/CoLA",
+      "max_length": 64,
+      "batch_size": 16,
+      "max_train_samples": 2048,
+      "max_eval_samples": 512,
+      "use_tiny_fallback": false
+    },
+    "adapter": {
+      "rank": 8,
+      "alpha": 16.0,
+      "l1_lambda": 0.001,
+      "adalora_target_rank": 4
+    }
+  },
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 0.6621909234672785,
+      "eval_loss": 0.5615506870672107,
+      "accuracy": 0.693359375,
+      "mcc": 0.0
+    }
+  ],
+  "seconds": 16.803937812001095,
+  "trainable_params": 1346144,
+  "total_params": 185769826,
+  "effective_rank": 8.0
+}

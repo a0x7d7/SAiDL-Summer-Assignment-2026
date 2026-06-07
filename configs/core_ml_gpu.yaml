@@ -1,0 +1,30 @@
+name: core_gpu
+seed: 0
+device: auto
+epochs: 1
+max_steps: 500
+max_eval_batches: 8
+benchmark_steps: 3
+lr: 0.0005
+weight_decay: 0.01
+grad_clip: 1.0
+output_dir: results/core_ml_gpu
+suite_contexts: [512, 1024, 2048]
+data:
+  tokenizer: gpt2
+  context_length: 512
+  batch_size: 2
+  split_limit: 4000
+  max_train_samples: 1024
+  max_val_samples: 256
+model:
+  dim: 192
+  layers: 4
+  heads: 4
+  ff_dim: 768
+  dropout: 0.1
+  attention_type: standard
+  pos_encoding: learned
+  window_size: 256
+  sparse_block_size: 128
+  conv_mode: none
