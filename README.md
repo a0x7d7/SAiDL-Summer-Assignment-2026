@@ -1,7 +1,5 @@
 # SAiDL-Summer-Assignment-2026
 
-# SAiDL Summer Assignment 2026
-
 This is my final submission repo for the SAiDL Summer Assignment 2026.
 
 I took the Core ML route and the Sparsity \& Optimization route, and the final report is here:
