@@ -22,7 +22,6 @@ I took the Core ML route and the Sparsity \& Optimization route, and the final r
 ```powershell
 python -m pip install -r requirements.txt
 python scripts/download_glue_cola.py --data_dir glue_data
-python -m pytest tests
 python -m core_ml.run_suite --config configs/core_ml_gpu.yaml
 python -m sparsity.run_suite --config configs/sparsity_gpu.yaml
 python -m sparsity.run_suite --config configs/sparsity_deberta_long.yaml
